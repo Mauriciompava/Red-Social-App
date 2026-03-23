@@ -1,0 +1,19 @@
+/* LeftSidebar Styles */
+.left-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.left-sidebar-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    overflow: hidden;
+}
+
+@media (max-width: 992px) {
+    .left-sidebar {
+        display: none;
+    }
+}

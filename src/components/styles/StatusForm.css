@@ -1,0 +1,41 @@
+/* StatusForm Styles */
+.status-form-container {
+    margin-bottom: 16px;
+}
+
+.status-form-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    padding: 16px;
+}
+
+.status-form-header {
+    opacity: 0.7;
+    margin-bottom: 16px;
+}
+
+.status-form-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    resize: vertical;
+    margin-bottom: 16px;
+}
+
+.status-form-button {
+    background-color: #00bcd4;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.status-form-button:hover {
+    background-color: #00acc1;
+}

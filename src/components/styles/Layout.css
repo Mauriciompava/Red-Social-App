@@ -1,0 +1,173 @@
+/* Layout Styles */
+.layout-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-content {
+    max-width: 1400px;
+    margin: 80px auto 0 auto;
+    width: 100%;
+    padding: 0 16px;
+}
+
+.layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 1200px) {
+    .layout-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .layout-grid {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .layout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .layout-content {
+        margin-top: 60px;
+    }
+}
+
+.w3-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -8px;
+}
+
+.w3-col {
+    flex: 1;
+    padding: 8px;
+}
+
+.w3-col.m1 {
+    flex: 0 0 calc((100% / 12) * 1);
+}
+
+.w3-col.m2 {
+    flex: 0 0 calc((100% / 12) * 2);
+}
+
+.w3-col.m3 {
+    flex: 0 0 calc((100% / 12) * 3);
+}
+
+.w3-col.m4 {
+    flex: 0 0 calc((100% / 12) * 4);
+}
+
+.w3-col.m5 {
+    flex: 0 0 calc((100% / 12) * 5);
+}
+
+.w3-col.m6 {
+    flex: 0 0 calc((100% / 12) * 6);
+}
+
+.w3-col.m7 {
+    flex: 0 0 calc((100% / 12) * 7);
+}
+
+.w3-col.m8 {
+    flex: 0 0 calc((100% / 12) * 8);
+}
+
+.w3-col.m9 {
+    flex: 0 0 calc((100% / 12) * 9);
+}
+
+.w3-col.m10 {
+    flex: 0 0 calc((100% / 12) * 10);
+}
+
+.w3-col.m11 {
+    flex: 0 0 calc((100% / 12) * 11);
+}
+
+.w3-col.m12 {
+    flex: 0 0 100%;
+}
+
+.w3-card {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.w3-round {
+    border-radius: 4px;
+}
+
+.w3-white {
+    background-color: white;
+}
+
+.w3-container {
+    padding: 16px;
+}
+
+.w3-padding {
+    padding: 16px;
+}
+
+.w3-margin {
+    margin: 16px;
+}
+
+.w3-margin-bottom {
+    margin-bottom: 16px;
+}
+
+.w3-margin-right {
+    margin-right: 8px;
+}
+
+.w3-opacity {
+    opacity: 0.7;
+}
+
+.w3-button {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.w3-button:hover {
+    background-color: #f5f5f5;
+}
+
+.w3-theme {
+    background-color: #00bcd4;
+    color: white;
+}
+
+.w3-theme-d1 {
+    background-color: #00b5bd;
+    color: white;
+}
+
+.w3-theme-d2 {
+    background-color: #009fad;
+    color: white;
+}
+
+.w3-hide-small {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .w3-hide-small {
+        display: none;
+    }
+}

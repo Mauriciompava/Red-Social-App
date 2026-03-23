@@ -1,0 +1,55 @@
+/* FriendRequest Styles */
+.friend-request-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    padding: 16px;
+    text-align: center;
+}
+
+.friend-request-container img {
+    width: 50%;
+    height: auto;
+    border-radius: 4px;
+    margin: 8px 0;
+}
+
+.friend-request-container span {
+    display: block;
+    margin: 8px 0;
+}
+
+.friend-request-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    opacity: 0.7;
+}
+
+.friend-request-button {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    transition: opacity 0.3s;
+    margin: 8px 0;
+}
+
+.friend-request-button.accept {
+    background-color: #4caf50;
+}
+
+.friend-request-button.decline {
+    background-color: #f44336;
+}
+
+.friend-request-button:hover {
+    opacity: 0.9;
+}
+
+.friend-request-status {
+    padding: 16px;
+    text-align: center;
+}

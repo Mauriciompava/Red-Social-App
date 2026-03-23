@@ -1,0 +1,16 @@
+/* MainFeed Styles */
+.main-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.main-feed-container {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .main-feed {
+        width: 100%;
+    }
+}

@@ -1,0 +1,29 @@
+/* Accordion Styles */
+.accordion-button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.accordion-button:hover {
+    background-color: #ddd;
+}
+
+.accordion-content {
+    display: none;
+    padding: 16px;
+    background-color: white;
+}
+
+.accordion-content.show {
+    display: block;
+}
+
+.accordion-content img {
+    max-width: 100%;
+    height: auto;
+}

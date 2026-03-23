@@ -1,0 +1,17 @@
+/* BugIcon Styles */
+.bug-icon-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    padding: 32px 16px;
+    text-align: center;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bug-icon-container i {
+    font-size: 48px;
+    color: #666;
+}

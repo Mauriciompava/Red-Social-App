@@ -1,0 +1,27 @@
+/* ProfileCard Styles */
+.profile-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    padding: 16px;
+}
+
+.profile-card h4 {
+    text-align: center;
+    margin: 0 0 16px 0;
+}
+
+.profile-card img {
+    display: block;
+    margin: 0 auto;
+}
+
+.profile-card p {
+    margin: 8px 0;
+}
+
+.profile-card hr {
+    margin: 16px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}

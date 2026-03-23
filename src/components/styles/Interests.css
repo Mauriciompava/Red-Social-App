@@ -1,0 +1,75 @@
+/* Interests Styles */
+.interests-container {
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.interests-container p {
+    margin: 0 0 8px 0;
+}
+
+.w3-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 4px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.w3-theme-d5 {
+    background-color: #005a7d;
+    color: white;
+}
+
+.w3-theme-d4 {
+    background-color: #00738d;
+    color: white;
+}
+
+.w3-theme-d3 {
+    background-color: #00899d;
+    color: white;
+}
+
+.w3-theme-d2 {
+    background-color: #009fad;
+    color: white;
+}
+
+.w3-theme-d1 {
+    background-color: #00b5bd;
+    color: white;
+}
+
+.w3-theme {
+    background-color: #00bcd4;
+    color: white;
+}
+
+.w3-theme-l1 {
+    background-color: #26c6da;
+    color: white;
+}
+
+.w3-theme-l2 {
+    background-color: #4dd0e1;
+    color: white;
+}
+
+.w3-theme-l3 {
+    background-color: #80deea;
+    color: #666;
+}
+
+.w3-theme-l4 {
+    background-color: #b2ebf2;
+    color: #666;
+}
+
+.w3-theme-l5 {
+    background-color: #e0f7fa;
+    color: #666;
+}

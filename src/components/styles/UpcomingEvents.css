@@ -1,0 +1,33 @@
+/* UpcomingEvents Styles */
+.upcoming-events-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    padding: 16px;
+    text-align: center;
+}
+
+.upcoming-events-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 8px 0;
+}
+
+.upcoming-events-container p {
+    margin: 8px 0;
+}
+
+.upcoming-events-button {
+    width: 100%;
+    padding: 8px;
+    background-color: #b2ebf2;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upcoming-events-button:hover {
+    background-color: #80deea;
+}

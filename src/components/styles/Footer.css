@@ -1,0 +1,40 @@
+/* Footer Styles */
+.footer {
+    width: 100%;
+    margin-top: 16px;
+}
+
+.footer-container {
+    padding: 16px;
+}
+
+.footer-primary {
+    background-color: #455a64;
+    color: white;
+}
+
+.footer-secondary {
+    background-color: #37474f;
+    color: white;
+}
+
+.footer-primary h5,
+.footer-secondary h5 {
+    margin: 0 0 8px 0;
+}
+
+.footer-primary p,
+.footer-secondary p {
+    margin: 0;
+}
+
+.footer-primary a,
+.footer-secondary a {
+    color: #80deea;
+    text-decoration: none;
+}
+
+.footer-primary a:hover,
+.footer-secondary a:hover {
+    text-decoration: underline;
+}

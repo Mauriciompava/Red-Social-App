@@ -1,0 +1,18 @@
+/* Ads Styles */
+.ads-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    padding: 16px;
+    text-align: center;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ads-container p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
