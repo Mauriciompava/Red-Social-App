@@ -153,7 +153,7 @@
     margin-top: 8px;
 }
 
-.comment-form button:disabled {
+.comment-form button.disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
@@ -185,4 +185,84 @@
 
 .post-button.liked {
     background-color: #c8e6c9;
+}
+
+/* Reply Form Styles */
+.reply-section {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #ddd;
+}
+
+.replies-box {
+    background-color: #f0f8ff;
+    border-left: 3px solid #007bff;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.reply-item {
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    border-left: 2px solid #4da6ff;
+    font-size: 13px;
+}
+
+.reply-item:last-child {
+    margin-bottom: 0;
+}
+
+.reply-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.reply-header strong {
+    color: #0066cc;
+}
+
+.reply-timestamp {
+    font-size: 11px;
+    color: #999;
+}
+
+.reply-text {
+    margin: 4px 0 0 0;
+    color: #333;
+    line-height: 1.3;
+}
+
+.reply-form {
+    margin-top: 12px;
+}
+
+.reply-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.reply-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+.reply-form button {
+    margin-right: 8px;
+}
+
+.reply-form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }

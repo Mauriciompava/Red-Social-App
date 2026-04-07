@@ -16,8 +16,9 @@ const MainFeed = () => {
             ],
             likes: 5,
             isLiked: false,
+            shares: 0,
             comments: [
-                { id: 1, author: 'You', text: 'Great post!', timestamp: 'now' }
+                { id: 1, author: 'You', text: 'Great post!', timestamp: 'now', likes: 0 }
             ]
         },
         {
@@ -29,6 +30,7 @@ const MainFeed = () => {
             images: [],
             likes: 3,
             isLiked: false,
+            shares: 0,
             comments: []
         },
         {
@@ -40,6 +42,7 @@ const MainFeed = () => {
             images: ['https://www.w3schools.com/w3images/nature.jpg'],
             likes: 8,
             isLiked: false,
+            shares: 0,
             comments: []
         }
     ]);
@@ -54,6 +57,7 @@ const MainFeed = () => {
             images: [],
             likes: 0,
             isLiked: false,
+            shares: 0,
             comments: []
         };
         setPosts([newPost, ...posts]);
@@ -79,7 +83,8 @@ const MainFeed = () => {
                     id: post.comments.length + 1,
                     author: 'You',
                     text: commentText,
-                    timestamp: 'now'
+                    timestamp: 'now',
+                    likes: 0
                 };
                 return {
                     ...post,
@@ -118,6 +123,62 @@ const MainFeed = () => {
         }));
     };
 
+    const handleShare = (postId) => {
+        setPosts(posts.map(post => {
+            if (post.id === postId) {
+                return {
+                    ...post,
+                    shares: post.shares + 1
+                };
+            }
+            return post;
+        }));
+    };
+
+    const handleLikeComment = (postId, commentId) => {
+        setPosts(posts.map(post => {
+            if (post.id === postId) {
+                return {
+                    ...post,
+                    comments: post.comments.map(comment =>
+                        comment.id === commentId
+                            ? { ...comment, likes: (comment.likes || 0) + 1 }
+                            : comment
+                    )
+                };
+            }
+            return post;
+        }));
+    };
+
+    const handleAddReply = (postId, commentId, replyText) => {
+        setPosts(posts.map(post => {
+            if (post.id === postId) {
+                return {
+                    ...post,
+                    comments: post.comments.map(comment => {
+                        if (comment.id === commentId) {
+                            const newReply = {
+                                id: `${commentId}-reply-${Date.now()}`,
+                                author: 'You',
+                                text: replyText,
+                                timestamp: 'now',
+                                likes: 0,
+                                isReply: true
+                            };
+                            return {
+                                ...comment,
+                                replies: [...(comment.replies || []), newReply]
+                            };
+                        }
+                        return comment;
+                    })
+                };
+            }
+            return post;
+        }));
+    };
+
     return (
         <div className="w3-col m7" style={{ padding: '16px 20px' }}>
             <StatusForm onPostSubmit={handlePostSubmit} />
@@ -133,11 +194,15 @@ const MainFeed = () => {
                     images={post.images}
                     likes={post.likes}
                     isLiked={post.isLiked}
+                    shares={post.shares}
                     comments={post.comments}
                     onLike={handleLike}
                     onAddComment={handleAddComment}
                     onEditComment={handleEditComment}
                     onDeleteComment={handleDeleteComment}
+                    onShare={handleShare}
+                    onLikeComment={handleLikeComment}
+                    onAddReply={handleAddReply}
                 />
             ))}
         </div>

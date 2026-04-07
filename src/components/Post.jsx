@@ -11,14 +11,21 @@ const Post = ({
     likes = 0,
     isLiked = false,
     comments = [],
+    shares = 0,
     onLike,
     onAddComment,
     onEditComment,
-    onDeleteComment
+    onDeleteComment,
+    onShare,
+    onLikeComment,
+    onAddReply
 }) => {
     const [commentText, setCommentText] = useState('');
     const [editingCommentId, setEditingCommentId] = useState(null);
     const [editingCommentText, setEditingCommentText] = useState('');
+    const [replyingToCommentId, setReplyingToCommentId] = useState(null);
+    const [replyText, setReplyText] = useState('');
+    const [showRepliesForCommentId, setShowRepliesForCommentId] = useState(null);
 
     const handleLikeClick = () => {
         onLike(postId);
@@ -48,6 +55,32 @@ const Post = ({
     const handleCancelEdit = () => {
         setEditingCommentId(null);
         setEditingCommentText('');
+    };
+
+    const handleShareClick = () => {
+        onShare && onShare(postId);
+    };
+
+    const handleLikeComment = (commentId) => {
+        onLikeComment && onLikeComment(postId, commentId);
+    };
+
+    const handleReplyClick = (commentId) => {
+        setReplyingToCommentId(replyingToCommentId === commentId ? null : commentId);
+        setShowRepliesForCommentId(showRepliesForCommentId === commentId ? null : commentId);
+    };
+
+    const handleSubmitReply = (commentId) => {
+        if (replyText.trim()) {
+            onAddReply && onAddReply(postId, commentId, replyText);
+            setReplyText('');
+        }
+    };
+
+    const handleCancelReply = () => {
+        setReplyingToCommentId(null);
+        setReplyText('');
+        setShowRepliesForCommentId(null);
     };
 
     return (
@@ -98,6 +131,13 @@ const Post = ({
                 >
                     <i className="fa fa-thumbs-up"></i>  Like {likes > 0 && `(${likes})`}
                 </button>
+                <button
+                    onClick={handleShareClick}
+                    type="button"
+                    className="w3-button w3-margin-bottom w3-theme-d3"
+                >
+                    <i className="fa fa-share"></i>  Share {shares > 0 && `(${shares})`}
+                </button>
             </div>
 
             {/* Comments Section */}
@@ -142,24 +182,93 @@ const Post = ({
                                 ) : (
                                     <>
                                         <p className="comment-text">{comment.text}</p>
-                                        {comment.author === 'You' && (
-                                            <div className="comment-actions">
-                                                <button
-                                                    type="button"
-                                                    onClick={() => handleEditComment(comment)}
-                                                    className="w3-button w3-small w3-text-blue"
-                                                    style={{ padding: '0 4px', marginRight: '8px' }}
-                                                >
-                                                    <i className="fa fa-edit"></i> Edit
-                                                </button>
-                                                <button
-                                                    type="button"
-                                                    onClick={() => onDeleteComment(postId, comment.id)}
-                                                    className="w3-button w3-small w3-text-red"
-                                                    style={{ padding: '0 4px' }}
-                                                >
-                                                    <i className="fa fa-trash"></i> Delete
-                                                </button>
+                                        <div className="comment-actions">
+                                            <button
+                                                type="button"
+                                                onClick={() => handleLikeComment(comment.id)}
+                                                className="w3-button w3-small w3-text-blue"
+                                                style={{ padding: '0 4px', marginRight: '8px' }}
+                                            >
+                                                <i className="fa fa-thumbs-up"></i> Like {comment.likes > 0 && `(${comment.likes})`}
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => handleReplyClick(comment.id)}
+                                                className="w3-button w3-small w3-text-blue"
+                                                style={{ padding: '0 4px', marginRight: '8px' }}
+                                            >
+                                                <i className="fa fa-reply"></i> Reply
+                                            </button>
+                                            {comment.author === 'You' && (
+                                                <>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => handleEditComment(comment)}
+                                                        className="w3-button w3-small w3-text-blue"
+                                                        style={{ padding: '0 4px', marginRight: '8px' }}
+                                                    >
+                                                        <i className="fa fa-edit"></i> Edit
+                                                    </button>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => onDeleteComment(postId, comment.id)}
+                                                        className="w3-button w3-small w3-text-red"
+                                                        style={{ padding: '0 4px' }}
+                                                    >
+                                                        <i className="fa fa-trash"></i> Delete
+                                                    </button>
+                                                </>
+                                            )}
+                                        </div>
+
+                                        {replyingToCommentId === comment.id && (
+                                            <div className="reply-section">
+                                                {/* Show existing replies */}
+                                                {showRepliesForCommentId === comment.id && comment.replies && comment.replies.length > 0 && (
+                                                    <div className="replies-box">
+                                                        <h6 style={{ marginBottom: '12px', fontSize: '12px', fontWeight: 'bold', color: '#666' }}>
+                                                            Replies ({comment.replies.length})
+                                                        </h6>
+                                                        {comment.replies.map((reply) => (
+                                                            <div key={reply.id} className="reply-item">
+                                                                <div className="reply-header">
+                                                                    <strong style={{ fontSize: '12px' }}>{reply.author}</strong>
+                                                                    <span className="reply-timestamp">{reply.timestamp}</span>
+                                                                </div>
+                                                                <p className="reply-text">{reply.text}</p>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+
+                                                {/* Reply form */}
+                                                <div className="reply-form">
+                                                    <textarea
+                                                        value={replyText}
+                                                        onChange={(e) => setReplyText(e.target.value)}
+                                                        placeholder="Write a reply..."
+                                                        className="w3-input w3-border"
+                                                        style={{ resize: 'vertical', minHeight: '50px', marginBottom: '8px' }}
+                                                    />
+                                                    <div>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => handleSubmitReply(comment.id)}
+                                                            className="w3-button w3-theme-d2 w3-small"
+                                                            style={{ marginRight: '4px' }}
+                                                            disabled={!replyText.trim()}
+                                                        >
+                                                            <i className="fa fa-send"></i> Reply
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            onClick={handleCancelReply}
+                                                            className="w3-button w3-theme-d3 w3-small"
+                                                        >
+                                                            Cancel
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         )}
                                     </>
