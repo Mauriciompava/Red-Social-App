@@ -1,16 +1,53 @@
 import { useState } from 'react';
+import './styles/Post.css';
 
-const Post = ({ author, avatar, timestamp, content, images = [] }) => {
-    const [likes, setLikes] = useState(0);
-    const [isLiked, setIsLiked] = useState(false);
+const Post = ({
+    postId,
+    author,
+    avatar,
+    timestamp,
+    content,
+    images = [],
+    likes = 0,
+    isLiked = false,
+    comments = [],
+    onLike,
+    onAddComment,
+    onEditComment,
+    onDeleteComment
+}) => {
+    const [commentText, setCommentText] = useState('');
+    const [editingCommentId, setEditingCommentId] = useState(null);
+    const [editingCommentText, setEditingCommentText] = useState('');
 
-    const handleLike = () => {
-        if (isLiked) {
-            setLikes(likes - 1);
-        } else {
-            setLikes(likes + 1);
+    const handleLikeClick = () => {
+        onLike(postId);
+    };
+
+    const handleCommentSubmit = (e) => {
+        e.preventDefault();
+        if (commentText.trim()) {
+            onAddComment(postId, commentText);
+            setCommentText('');
         }
-        setIsLiked(!isLiked);
+    };
+
+    const handleEditComment = (comment) => {
+        setEditingCommentId(comment.id);
+        setEditingCommentText(comment.text);
+    };
+
+    const handleSaveEdit = (commentId) => {
+        if (editingCommentText.trim()) {
+            onEditComment(postId, commentId, editingCommentText);
+            setEditingCommentId(null);
+            setEditingCommentText('');
+        }
+    };
+
+    const handleCancelEdit = () => {
+        setEditingCommentId(null);
+        setEditingCommentText('');
     };
 
     return (
@@ -52,16 +89,104 @@ const Post = ({ author, avatar, timestamp, content, images = [] }) => {
                 </>
             )}
 
-            <button
-                onClick={handleLike}
-                type="button"
-                className="w3-button w3-theme-d1 w3-margin-bottom"
-            >
-                <i className="fa fa-thumbs-up"></i>  Like
-            </button>
-            <button type="button" className="w3-button w3-theme-d2 w3-margin-bottom">
-                <i className="fa fa-comment"></i>  Comment
-            </button>
+            <div className="post-actions">
+                <button
+                    onClick={handleLikeClick}
+                    type="button"
+                    className={`w3-button w3-margin-bottom ${isLiked ? 'w3-theme-l1' : 'w3-theme-d1'}`}
+                    style={{ fontWeight: isLiked ? 'bold' : 'normal' }}
+                >
+                    <i className="fa fa-thumbs-up"></i>  Like {likes > 0 && `(${likes})`}
+                </button>
+            </div>
+
+            {/* Comments Section */}
+            <div className="comments-section">
+                {/* Comments List */}
+                {comments.length > 0 && (
+                    <div className="comments-list">
+                        <h5 style={{ marginTop: '16px', marginBottom: '12px' }}>Comments ({comments.length})</h5>
+                        {comments.map((comment) => (
+                            <div key={comment.id} className="comment-item">
+                                <div className="comment-header">
+                                    <strong>{comment.author}</strong>
+                                    <span className="comment-timestamp">{comment.timestamp}</span>
+                                </div>
+
+                                {editingCommentId === comment.id ? (
+                                    <div className="comment-edit-form">
+                                        <textarea
+                                            value={editingCommentText}
+                                            onChange={(e) => setEditingCommentText(e.target.value)}
+                                            className="w3-input w3-border"
+                                            style={{ marginBottom: '8px' }}
+                                        />
+                                        <div>
+                                            <button
+                                                type="button"
+                                                onClick={() => handleSaveEdit(comment.id)}
+                                                className="w3-button w3-theme-d1 w3-small"
+                                                style={{ marginRight: '4px' }}
+                                            >
+                                                Save
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={handleCancelEdit}
+                                                className="w3-button w3-theme-d2 w3-small"
+                                            >
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <>
+                                        <p className="comment-text">{comment.text}</p>
+                                        {comment.author === 'You' && (
+                                            <div className="comment-actions">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => handleEditComment(comment)}
+                                                    className="w3-button w3-small w3-text-blue"
+                                                    style={{ padding: '0 4px', marginRight: '8px' }}
+                                                >
+                                                    <i className="fa fa-edit"></i> Edit
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => onDeleteComment(postId, comment.id)}
+                                                    className="w3-button w3-small w3-text-red"
+                                                    style={{ padding: '0 4px' }}
+                                                >
+                                                    <i className="fa fa-trash"></i> Delete
+                                                </button>
+                                            </div>
+                                        )}
+                                    </>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                {/* Add Comment Form */}
+                <form onSubmit={handleCommentSubmit} className="comment-form">
+                    <textarea
+                        value={commentText}
+                        onChange={(e) => setCommentText(e.target.value)}
+                        placeholder="Write a comment..."
+                        className="w3-input w3-border"
+                        style={{ resize: 'vertical', minHeight: '60px', marginTop: '12px' }}
+                    />
+                    <button
+                        type="submit"
+                        className="w3-button w3-theme-d2 w3-margin-top"
+                        disabled={!commentText.trim()}
+                    >
+                        <i className="fa fa-comment"></i>  Comment
+                    </button>
+                </form>
+            </div>
         </div>
     );
 };
