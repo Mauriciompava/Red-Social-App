@@ -1,0 +1,687 @@
+.not-found-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0d1b2a 100%);
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    position: relative;
+}
+
+.not-found-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 600px;
+    padding: 40px;
+}
+
+/* Animated Background Elements */
+.animated-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Código flotante de fondo */
+.animated-background::before {
+    content: "function decode() { const matrix = [0,1,0]; for(let i=0; i<matrix.length; i++) { console.log(matrix[i]); } return true; } // React Router Navigation const routes = [home, news, profile]; const handleClick = () => { navigate('/'); }; import React from 'react'; const App = () => { return <Router> <Routes> </Routes> </Router>; }; const state = useState(); const effect = useEffect(); async function fetchData() { return await fetch(); }";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    font-size: 12px;
+    color: rgba(0, 255, 255, 0.03);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.8;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.05);
+    animation: codeFlow 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes codeFlow {
+    0% {
+        transform: translateY(0) rotateZ(-5deg);
+    }
+
+    100% {
+        transform: translateY(100vh) rotateZ(5deg);
+    }
+}
+
+/* Símbolos de programación flotantes grandes */
+.animated-background::after {
+    content: "{ } [ ] < > ( ) ; : . , = + - * / | & ^ ~ ! ? @ # $ % const let var function return import export default async await try catch finally if else switch case break continue for while do return class extends super static public private protected abstract interface";
+    position: absolute;
+    width: 300%;
+    height: 150%;
+    top: 0;
+    left: 0;
+    font-size: 14px;
+    color: rgba(255, 0, 255, 0.02);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 2.2;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    animation: codeScroll 30s linear infinite reverse;
+    z-index: 0;
+}
+
+@keyframes codeScroll {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-100px);
+    }
+}
+
+.grid-line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.15), transparent);
+    animation: scan 8s linear infinite;
+    z-index: 2;
+}
+
+.grid-line:nth-child(1) {
+    width: 100%;
+    height: 3px;
+    top: 25%;
+    animation-delay: 0s;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+.grid-line:nth-child(2) {
+    width: 100%;
+    height: 3px;
+    top: 50%;
+    animation-delay: 2s;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.grid-line:nth-child(3) {
+    width: 100%;
+    height: 3px;
+    top: 75%;
+    animation-delay: 4s;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+/* Partículas flotantes de código */
+.floating-code {
+    position: absolute;
+    font-size: 2.5rem;
+    font-weight: bold;
+    animation: float 6s ease-in-out infinite;
+    font-family: 'Courier New', monospace;
+    z-index: 3;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.floating-code:nth-child(4) {
+    left: 10%;
+    top: 20%;
+    color: rgba(0, 255, 255, 0.25);
+    animation: float 8s ease-in-out infinite;
+}
+
+.floating-code:nth-child(5) {
+    right: 15%;
+    top: 40%;
+    color: rgba(0, 255, 0, 0.25);
+    animation: float 10s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.floating-code:nth-child(6) {
+    left: 5%;
+    bottom: 15%;
+    color: rgba(255, 0, 255, 0.25);
+    animation: float 12s ease-in-out infinite;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0.25;
+    }
+
+    25% {
+        transform: translateY(-50px) translateX(20px);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(-100px) translateX(-30px);
+        opacity: 0.25;
+    }
+
+    75% {
+        transform: translateY(-50px) translateX(50px);
+        opacity: 0.35;
+    }
+}
+
+/* Líneas de conexión diagonal */
+.animated-background .grid-line {
+    box-shadow:
+        0 0 20px rgba(0, 255, 255, 0.4),
+        inset 0 0 20px rgba(0, 255, 0, 0.1);
+}
+
+/* Error Code and Title */
+.error-code {
+    font-size: 120px;
+    margin: 0;
+    font-weight: bold;
+    background: linear-gradient(45deg, #00ff00, #00ffff, #ff00ff, #00ff00);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s linear infinite;
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.6), 0 0 60px rgba(0, 255, 0, 0.3);
+    letter-spacing: 10px;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.error-title {
+    font-size: 28px;
+    color: #00ffff;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.9), 0 0 30px rgba(0, 255, 255, 0.5), 0 0 50px rgba(0, 255, 0, 0.3);
+    animation: flicker 0.15s infinite;
+    font-weight: 700;
+}
+
+@keyframes flicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.9), 0 0 30px rgba(0, 255, 255, 0.5), 0 0 50px rgba(0, 255, 0, 0.3);
+    }
+
+    20%,
+    24%,
+    55% {
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    }
+}
+
+.error-description {
+    font-size: 16px;
+    color: #00ff00;
+    margin: 20px 0;
+    opacity: 0.9;
+    animation: typewrite 3s steps(40) infinite;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.4);
+}
+
+@keyframes typewrite {
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+.error-status {
+    font-size: 12px;
+    color: #ff00ff;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.4);
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    background: #ff00ff;
+    border-radius: 50%;
+    animation: pulse 1s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(255, 0, 255, 0.6), 0 0 20px rgba(255, 0, 255, 0.3);
+    }
+
+    50% {
+        opacity: 0.4;
+        box-shadow: 0 0 5px rgba(255, 0, 255, 0.3);
+    }
+}
+
+/* Glitch Effect Button */
+.glitch {
+    position: relative;
+    margin-top: 40px;
+}
+
+.glitch[data-text]::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 100%;
+    color: #ff00ff;
+    opacity: 0.8;
+    z-index: -1;
+    animation: glitch-1 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.glitch[data-text]::after {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    width: 100%;
+    color: #00ffff;
+    opacity: 0.8;
+    z-index: -2;
+    animation: glitch-2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+@keyframes glitch-1 {
+    0% {
+        clip-path: rect(0, 900px, 0, 0);
+    }
+
+    5% {
+        clip-path: rect(10px, 9999px, 30px, 0);
+    }
+
+    10% {
+        clip-path: rect(5px, 9999px, 10px, 0);
+    }
+
+    15% {
+        clip-path: rect(5px, 9999px, 20px, 0);
+    }
+
+    20% {
+        clip-path: rect(5px, 9999px, 5px, 0);
+    }
+
+    25% {
+        clip-path: rect(0, 9999px, 0, 0);
+    }
+
+    100% {
+        clip-path: rect(0, 0, 0, 0);
+    }
+}
+
+@keyframes glitch-2 {
+    0% {
+        clip-path: rect(0, 0, 0, 0);
+    }
+
+    5% {
+        clip-path: rect(5px, 9999px, 10px, 0);
+    }
+
+    10% {
+        clip-path: rect(5px, 9999px, 20px, 0);
+    }
+
+    15% {
+        clip-path: rect(0, 9999px, 30px, 0);
+    }
+
+    20% {
+        clip-path: rect(10px, 9999px, 0px, 0);
+    }
+
+    25% {
+        clip-path: rect(0, 0, 0, 0);
+    }
+
+    100% {
+        clip-path: rect(0, 900px, 0, 0);
+    }
+}
+
+.return-button {
+    display: inline-block;
+    padding: 15px 40px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #00ff00, #00ffff);
+    color: #0a0e27;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6), inset 0 0 25px rgba(0, 255, 0, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
+.return-button:hover {
+    background: linear-gradient(135deg, #00ffff, #00ff00);
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.9), inset 0 0 25px rgba(0, 255, 0, 0.4), 0 0 30px rgba(0, 255, 0, 0.5);
+    transform: scale(1.08) translateY(-3px);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+.return-button:active {
+    transform: scale(0.96) translateY(0);
+}
+
+/* Scanlines Effect */
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.2) 1px,
+            transparent 1px,
+            transparent 2px);
+    pointer-events: none;
+    z-index: 5;
+    animation: scanlineMove 8s linear infinite;
+}
+
+@keyframes scanlineMove {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .error-code {
+        font-size: 80px;
+        letter-spacing: 5px;
+    }
+
+    .error-title {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+
+    .not-found-content {
+        padding: 20px;
+    }
+}
+
+.error-description {
+    font-size: 16px;
+    color: #00ff00;
+    margin: 20px 0;
+    opacity: 0.8;
+    animation: typewrite 3s steps(40) infinite;
+}
+
+@keyframes typewrite {
+    0% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.error-status {
+    font-size: 12px;
+    color: #ff00ff;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    background: #ff00ff;
+    border-radius: 50%;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(255, 0, 255, 0.7);
+    }
+
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 10px rgba(255, 0, 255, 0);
+    }
+}
+
+/* Glitch Effect Button */
+.glitch {
+    position: relative;
+    margin-top: 40px;
+}
+
+.glitch[data-text]::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 100%;
+    color: #ff00ff;
+    opacity: 0.8;
+    z-index: -1;
+    animation: glitch-1 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.glitch[data-text]::after {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    width: 100%;
+    color: #00ffff;
+    opacity: 0.8;
+    z-index: -2;
+    animation: glitch-2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+@keyframes glitch-1 {
+    0% {
+        clip-path: rect(0, 900px, 0, 0);
+    }
+
+    5% {
+        clip-path: rect(10px, 9999px, 30px, 0);
+    }
+
+    10% {
+        clip-path: rect(5px, 9999px, 10px, 0);
+    }
+
+    15% {
+        clip-path: rect(5px, 9999px, 20px, 0);
+    }
+
+    20% {
+        clip-path: rect(5px, 9999px, 5px, 0);
+    }
+
+    25% {
+        clip-path: rect(0, 9999px, 0, 0);
+    }
+
+    100% {
+        clip-path: rect(0, 0, 0, 0);
+    }
+}
+
+@keyframes glitch-2 {
+    0% {
+        clip-path: rect(0, 0, 0, 0);
+    }
+
+    5% {
+        clip-path: rect(5px, 9999px, 10px, 0);
+    }
+
+    10% {
+        clip-path: rect(5px, 9999px, 20px, 0);
+    }
+
+    15% {
+        clip-path: rect(0, 9999px, 30px, 0);
+    }
+
+    20% {
+        clip-path: rect(10px, 9999px, 0px, 0);
+    }
+
+    25% {
+        clip-path: rect(0, 0, 0, 0);
+    }
+
+    100% {
+        clip-path: rect(0, 900px, 0, 0);
+    }
+}
+
+.return-button {
+    display: inline-block;
+    padding: 15px 40px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #00ff00, #00ffff);
+    color: #0a0e27;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), inset 0 0 20px rgba(0, 255, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.return-button:hover {
+    background: linear-gradient(135deg, #00ffff, #00ff00);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.8), inset 0 0 20px rgba(0, 255, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.return-button:active {
+    transform: scale(0.98);
+}
+
+/* Scanlines Effect */
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.15) 1px,
+            transparent 1px,
+            transparent 2px);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .error-code {
+        font-size: 80px;
+        letter-spacing: 5px;
+    }
+
+    .error-title {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+
+    .not-found-content {
+        padding: 20px;
+    }
+}
